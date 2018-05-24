@@ -242,8 +242,10 @@
 		$(this).on('click', function(){
 			if($(this).hasClass('big')){
 				$(this).removeClass('big')
+				$(".jpg").not($(this)).css({"z-index": 1})
 			} else {
 				$(this).addClass('big')
+				$(".jpg").not($(this)).css({"z-index": 0})
 			}
 		})
 	})
