@@ -107,7 +107,8 @@
 			margin: 0 auto 0;
 			top: 5vw;
 			transition: all 0.5s;
-			z-index: 1
+			z-index: 1;
+			cursor: pointer;
 		}
 		.big {
 			width: 100vw;
@@ -238,14 +239,24 @@
 		}
 	})
 	})
+	let startTime=0
 	$('.jpg').each(function(index){
-		$(this).on('click', function(){
-			if($(this).hasClass('big')){
+		$(this).on('mousedown', function(){
+			let a = new Date
+			startTime=a.getTime()
+			
+		})
+		$(this).on('mouseup', function(){
+			let a = new Date()
+			if((a.getTime() - startTime)<=800)
+			{
+				if($(this).hasClass('big')){
 				$(this).removeClass('big')
 				$(".jpg").not($(this)).css({"z-index": 1})
 			} else {
 				$(this).addClass('big')
 				$(".jpg").not($(this)).css({"z-index": 0})
+			}
 			}
 		})
 	})
