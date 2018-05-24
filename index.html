@@ -43,7 +43,10 @@
 	var ctx = canvas.getContext('2d')
 	var bg = document.getElementById('bg')
 	var p = document.getElementById('80')
-	ctx.drawImage(bg,0,0)
-	ctx.drawImage(p,0,0,50,50)
+	window.onload=function() {
+        ctx.drawImage(bg,0,0)
+        ctx.drawImage(p,0,0,50,50)
+	}
+
 </script>
 </html>
