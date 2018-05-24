@@ -4,9 +4,46 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<style>
+		.bg{
+			background: rgba(0,0,0,0.8);
+			height: 100vh;
+			margin: 0 auto;
+		}
+		body {
+			text-align: center;
+			margin: 0;
+		}
+		img {
+			display: none;
+		}
+		canvas {
+			margin-top: 40px;
+			height: 300px;
+			width: 90%;
+		}
+		@media screen and (min-width: 768px){
+			.bg{
+				width: 375px;
+				height: 667px;
+			}
+		}
+	</style>
 	<title>xiong</title>
 </head>
 <body>
-	1
+	<div class="bg">
+		<canvas id="canvas"></canvas>
+		<img id="bg" src="./static/bg.png" alt="">
+		<img id="80" src="./static/80.png" alt="">
+	</div>
 </body>
+<script>
+	var canvas = document.getElementById('canvas')
+	var ctx = canvas.getContext('2d')
+	var bg = document.getElementById('bg')
+	var p = document.getElementById('80')
+	ctx.drawImage(bg,0,0)
+	ctx.drawImage(p,0,0,50,50)
+</script>
 </html>
