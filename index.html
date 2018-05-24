@@ -6,7 +6,6 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<style>
 		.bg{
-
 			background: url('./static/bg.png') 50%/contain;
 			background-color: #06b563;
 			height: auto;
@@ -93,8 +92,7 @@
 			width: 60vw;
 			height: 9vw;
 			background: url('./static/btn.png') no-repeat 50%/cover;
-			margin: 0 auto;
-			top: 12px;
+			margin: 0;
 			position: relative;
 			font-size: 12px;
 			line-height: 9vw;
@@ -106,7 +104,6 @@
 			position: relative;
 			margin: 0 auto 0;
 			top: 5vw;
-			transition: all 0.5s;
 			z-index: 1;
 			cursor: pointer;
 		}
@@ -124,6 +121,21 @@
 		.footer2 {
 			width: 30%;
 			margin: 0 auto;
+		}
+		.footer3 {
+			width: 90%;
+			margin: 30px auto 20px;
+		}
+		.play-box {
+			display: flex;
+			top: 12px;
+			position: relative;
+			justify-content: center;
+		}
+		.play {
+			width: 9vw;
+			height: 9vw;
+			display: inline;
 		}
 	</style>
 	<title>xiong</title>
@@ -147,7 +159,10 @@
 				<img class="jpg" src="./static/1.jpg" alt="">
 			</div>
 			<div class="space"></div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
 			<div class="btn">戳这里，听听算牌精的妖艳儿行话</div>
+		</div>
 			<audio id="audio1" src="./static/1.mp3"></audio>
 		</div>
 		<div class="space"></div>
@@ -163,7 +178,11 @@
 				<img class="jpg" src="./static/2.jpg" alt="">
 			</div>
 			<div class="space"></div>
-			<div class="btn">戳这里，听听慢吞吞的妖艳儿行话</div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
+				<div class="btn">戳这里，听听慢吞吞的妖艳儿行话</div>
+			</div>
+			
 			<audio id="audio2" src="./static/2.mp3"></audio>
 		</div>
 		<div class="space"></div>
@@ -179,7 +198,10 @@
 				<img class="jpg" src="./static/3.jpg" alt="">
 			</div>
 			<div class="space"></div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
 			<div class="btn">戳这里，听听玄学派的妖艳儿行话</div>
+		</div>
 			<audio id="audio3" src="./static/3.mp3"></audio>
 		</div>
 		<div class="space"></div>
@@ -195,7 +217,10 @@
 				<img class="jpg" src="./static/4.jpg" alt="">
 			</div>
 			<div class="space"></div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
 			<div class="btn">戳这里，听听假新手的妖艳儿行话</div>
+		</div>
 			<audio id="audio4" src="./static/4.mp3"></audio>
 		</div>
 		<div class="space"></div>
@@ -211,7 +236,10 @@
 				<img class="jpg" src="./static/5.jpg" alt="">
 			</div>
 			<div class="space"></div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
 			<div class="btn">戳这里，听听癞皮狗的妖艳儿行话</div>
+		</div>
 			<audio id="audio5" src="./static/5.mp3"></audio>
 		</div>
 		<div class="space"></div>
@@ -227,12 +255,17 @@
 				<img class="jpg" src="./static/6.jpg" alt="">
 			</div>
 			<div class="space"></div>
+			<div class="play-box">
+				<img class="play" src="./static/play.png" alt="">
 			<div class="btn">戳这里，听听召唤师的妖艳儿行话</div>
+		</div>
 			<audio id="audio6" src="./static/6.mp3"></audio>
 		</div>
 		<div class="space"></div>
 		<img class="footer" src="./static/footer.png" alt="">
 		<img class="footer2" src="./static/footer2.png" alt="">
+		<img class="footer3" src="./static/footer3.png" alt="">
+		<div class="space"></div>
 		<!--<canvas id="canvas" ></canvas>-->
 		<!--<img id="bg" src="./static/bg.png" alt="">-->
 		<!--<img id="80" src="./static/80.png" alt="">-->
@@ -240,6 +273,16 @@
 </body>
 <script>
 	$('.btn').each(function(index){
+		$(this).on('click', function(){
+		let audio = document.getElementById(`audio${index+1}`)
+		if(audio.paused) {
+			audio.play()
+		} else {
+			audio.pause()
+		}
+	})
+	})
+	$('.play').each(function(index){
 		$(this).on('click', function(){
 		let audio = document.getElementById(`audio${index+1}`)
 		if(audio.paused) {
