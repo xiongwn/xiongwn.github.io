@@ -17,7 +17,7 @@
 			margin: 0;
 		}
 		img {
-			display: none;
+			display: block;
 		}
 		canvas {
 			margin-top: 40px;
@@ -31,10 +31,12 @@
 		}
 		.border-box {
 			background: url('./static/border.png') no-repeat 50%/contain;
-			width: 80%;
-			height: 450px;
+			width: 60vw;
+			height: 100vw;
 			margin: 0 auto;
 			border-radius: 5px;
+			text-align: center;
+
 		}
 		.title,.des {
 			margin: 0 auto;
@@ -60,15 +62,16 @@
 		}
 		.item-box {
 			width: 85vw;
-			height: 170vw;
+			height: 150vw;
 			background: #ffefae;
 			text-align: center;
 			margin: 0 auto 30px;
+			box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.3);
 		}
 		.point {
 			display: block;
 			margin: 15px auto;
-			width: 25px;
+			/*width: 25px;*/
 		}
 		.space {
 			height: 1px;
@@ -76,7 +79,7 @@
 		.ma-box {
 			width: 40vw;
 			height: 16vw;
-			margin: 0 auto 10px;
+			margin: 0 auto ;
 			background: url('./static/ma.png') no-repeat 50%/contain;
 		}
 		.line {
@@ -87,7 +90,27 @@
 			position: relative;
 		}
 		.btn {
-
+			width: 60vw;
+			height: 9vw;
+			background: url('./static/btn.png') no-repeat 50%/cover;
+			margin: 0 auto;
+			top: 12px;
+			position: relative;
+			font-size: 12px;
+			line-height: 9vw;
+		}
+		.jpg {
+			border-radius: 5px;
+			width: 52vw;
+			height: 90vw;
+			position: relative;
+			margin: 0 auto 0;
+			top: 5vw;
+			transition: all 0.5s;
+			z-index: 1
+		}
+		.big {
+			/*transform: scale(1.5,1.5);*/
 		}
 	</style>
 	<title>xiong</title>
@@ -107,9 +130,28 @@
 				<img class="line" src="./static/line1.png" alt="">
 			</div>
 			<div class="space"></div>
-			<div class="border-box"></div>
+			<div class="border-box">
+				<img class="jpg" src="./static/1.jpg" alt="">
+			</div>
 			<div class="space"></div>
-			<div class="btn"></div>
+			<div class="btn">戳这里，听听慢慢吞吞的妖艳儿行话</div>
+			<audio id="audio1" src="./static/1.mp3"></audio>
+		</div>
+		<div class="space"></div>
+		<div class="item-box">
+			<div class="space"></div>
+			<img class="point" src="./static/point2.png" alt="">
+			<div class="ma-box">
+				<div class="space"></div>
+				<img class="line" src="./static/line2.png" alt="">
+			</div>
+			<div class="space"></div>
+			<div class="border-box">
+				<img class="jpg" src="./static/2.jpg" alt="">
+			</div>
+			<div class="space"></div>
+			<div class="btn">戳这里，听听慢慢吞吞的妖艳儿行话</div>
+			<audio id="audio2" src="./static/2.mp3"></audio>
 		</div>
 		<div class="space"></div>
 		<!--<canvas id="canvas" ></canvas>-->
@@ -118,6 +160,25 @@
 	</div>
 </body>
 <script>
+	$('.btn').each(function(index){
+		$(this).on('click', function(){
+		let audio = document.getElementById(`audio${index+1}`)
+		if(audio.paused) {
+			audio.play()
+		} else {
+			audio.pause()
+		}
+	})
+	})
+	$('.jpg').each(function(index){
+		$(this).on('click', function(){
+			if($(this).hasClass('big')){
+				$(this).removeClass('big')
+			} else {
+				$(this).addClass('big')
+			}
+		})
+	})
 //	var canvas = document.getElementById('canvas')
 //	canvas.height = 300
 //	var ctx = canvas.getContext('2d')
