@@ -22,11 +22,13 @@ canvas {
     }
 }
 .border-box {
-    background: url('../border.png') no-repeat 50%/contain;
+    /*background: url('../border.png') no-repeat 50%/contain;*/
+    border-radius: 10px;
+    background: white;
+    border: 3px solid rgb(13,55,69);
     width: 60vw;
     height: 100vw;
     margin: 0 auto;
-    border-radius: 5px;
     text-align: center;
 
 }
